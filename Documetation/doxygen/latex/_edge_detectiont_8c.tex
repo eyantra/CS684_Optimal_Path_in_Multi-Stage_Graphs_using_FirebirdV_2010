@@ -1,0 +1,567 @@
+\hypertarget{_edge_detectiont_8c}{
+\section{SRC/EdgeDetectiont.c File Reference}
+\label{_edge_detectiont_8c}\index{SRC/EdgeDetectiont.c@{SRC/EdgeDetectiont.c}}
+}
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include \char`\"{}Node.c\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_edge_detectiont_8c_ab01199c927ceda6f9520c7afb0f1b099}{init\_\-devices} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a3f8a3732239f1ff251be98da40c120e1}{lcd\_\-set\_\-4bit} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_ac23e73124dc9fabae95671fe71d074a6}{lcd\_\-init} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a73a5ab32b7aee89eeb34133ff3fc8bc8}{lcd\_\-print} (char row, char coloumn, unsigned int value, int digits)
+\item 
+void \hyperlink{_edge_detectiont_8c_a347388301b1cb3c59b86432e9fc9b957}{lcd\_\-string} (char $\ast$str)
+\item 
+void \hyperlink{_edge_detectiont_8c_a03dc9c23d8a1f0bb7e5b395c019f3732}{lcd\_\-reset} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_adf8b0cc638456814cadf9fb79221931f}{initNode} (struct \hyperlink{struct_node}{Node} $\ast$)
+\item 
+void \hyperlink{_edge_detectiont_8c_af68d13ce55b9e71286bf5bb4b3490171}{start\_\-level} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a1bb2dd2a07faa1139bb485a1c81218f5}{level2} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_ae8db1b1d88fef9504b6da9273677fc5d}{level3} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_ae26e0fbcae8cb59d3dae51134d8f2f8a}{final\_\-level} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a578f7cc9b705ce549aa856c927b102e8}{timer5\_\-init} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a27f01c5d49b89503a6d1380f151b19af}{adc\_\-pin\_\-config} (void)
+\item 
+void \hyperlink{_edge_detectiont_8c_a1e942fcd91f79d49e4ddb8d7e9d3ef95}{adc\_\-init} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_aa5ae897cf316acc5c766757ffd41db19}{velocity} (unsigned char left\_\-motor, unsigned char right\_\-motor)
+\item 
+void \hyperlink{_edge_detectiont_8c_ae288e1a552cd27714cf083f5b308c3e7}{INIT\_\-PORTS} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_aa2ff0b91ca44b175c3d1612e0209db99}{FORWARD} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_aa406d064168311cf0fac61d7b8e7e6ea}{STOP} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a94fbfb940a904fbaac5b6655a59eb31a}{REVERSE} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a38480be0e2dbfe9eac62c72d8620270e}{LEFT\_\-TURN} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_ab71cb3a4f6f9874c34767e07a599709a}{RIGHT\_\-TURN} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_aff7831bb17c1206ab082415ee14e21b1}{left\_\-position\_\-encoder\_\-interrupt\_\-init} (void)
+\item 
+void \hyperlink{_edge_detectiont_8c_a1333f7476858c2d76f7d725dfb0e7d88}{right\_\-position\_\-encoder\_\-interrupt\_\-init} (void)
+\item 
+\hyperlink{_edge_detectiont_8c_a98a290ada01eb27fd2ff4564371566e5}{ISR} (INT4\_\-vect)
+\item 
+\hyperlink{_edge_detectiont_8c_a6225c50fbafa01589351ed487223aacb}{ISR} (INT5\_\-vect)
+\item 
+void \hyperlink{_edge_detectiont_8c_afc027345bdb5eb901ff0d7aa5ffa7306}{linear\_\-distance\_\-mm} (unsigned int DistanceInMM)
+\item 
+void \hyperlink{_edge_detectiont_8c_a2abced502299086fef9db52a23c01cbb}{reverse\_\-distance\_\-mm} (unsigned int DistanceInMM)
+\item 
+void \hyperlink{_edge_detectiont_8c_aa1b82b4baab19062621f00fa4e68d43f}{angle\_\-rotate} (unsigned int Degrees, int dir)
+\item 
+unsigned char \hyperlink{_edge_detectiont_8c_ac8949a6e6609645be6d42868113ad6d0}{ADC\_\-Conversion\_\-} (unsigned char Ch)
+\item 
+int \hyperlink{_edge_detectiont_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a1327d52908154559e11b133201d9025d}{final\_\-move} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a80f7fd489559ef290b6f2b351473abaf}{printMatrix} ()
+\item 
+void \hyperlink{_edge_detectiont_8c_a588cd0c53225c61d7d46449db91e651a}{rotateSkipping} (int n)
+\item 
+int \hyperlink{_edge_detectiont_8c_a2e32f7d7a709c80c2a07018617c64625}{edgeDetect} (struct \hyperlink{struct_node}{Node} $\ast$\hyperlink{_edge_detectiont_8c_a50d53b1d6c1abc70717e03318a2de3c1}{node})
+\item 
+int \hyperlink{_edge_detectiont_8c_a022f5a54c9b6e46a252dcbdfe9ff7885}{followWhiteLineTillNode} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_edge_detectiont_8c_af97d1061a1e61db8a29e50b323f940a4}{LeftShaftCount}
+\item 
+int \hyperlink{_edge_detectiont_8c_a6887ad8f4f9bc7f6ed289866e5887241}{RightShaftCount}
+\item 
+int \hyperlink{_edge_detectiont_8c_a5d93f313fadfead6c7af16d7665e5115}{curAngle} = 0
+\item 
+int \hyperlink{_edge_detectiont_8c_a3e578b37bd9ae08c1c79c80c6aa39ec6}{levelcount} = 1
+\item 
+int \hyperlink{_edge_detectiont_8c_ab406a753bc7fb2b83fb0f2e52f91a4f2}{lev1Count}
+\item 
+int \hyperlink{_edge_detectiont_8c_ad9528042adba26d0cc6c841d73616989}{lev2Count}
+\item 
+int \hyperlink{_edge_detectiont_8c_a8bba73973fb78d5c97a1397f111ad401}{lev3Count}
+\item 
+int \hyperlink{_edge_detectiont_8c_ac1148b6c7c73300331ae93335f42241d}{i1}
+\item 
+int \hyperlink{_edge_detectiont_8c_a48d37c88961428889f8b283379ab961c}{i2}
+\item 
+int \hyperlink{_edge_detectiont_8c_a46d0b19c5363d1d6b47ff947ff767ecb}{i3}
+\item 
+struct \hyperlink{struct_node}{Node} \hyperlink{_edge_detectiont_8c_a50d53b1d6c1abc70717e03318a2de3c1}{node}
+\item 
+struct \hyperlink{struct_node}{Node} $\ast$ \hyperlink{_edge_detectiont_8c_a054e47e2d07f281f5a037ab90419e5c2}{temp} \mbox{[}4\mbox{]}
+\item 
+int \hyperlink{_edge_detectiont_8c_a11614f44ef4d939bdd984953346a7572}{error} = 5
+\item 
+char \hyperlink{_edge_detectiont_8c_ac07d175e891a1d2657e9ec2a0c8fd4ab}{buff} \mbox{[}5\mbox{]}
+\item 
+int \hyperlink{_edge_detectiont_8c_a04d5e53a92ab964a45874350fe99ff21}{final\_\-index} \mbox{[}4\mbox{]}
+\item 
+int \hyperlink{_edge_detectiont_8c_a4b9e5e4c7566a87c1091a605314f921b}{flag} \mbox{[}10\mbox{]} = \{0,0,0,0,0,0,0,0,0,0\}
+\item 
+int \hyperlink{_edge_detectiont_8c_a48f573e411c6f1306af7eb9c110622a1}{first\_\-time\_\-flag} = 0
+\item 
+int \hyperlink{_edge_detectiont_8c_adaaae017534d7f67b7f6a1a4a92d51de}{distanceStack} \mbox{[}3\mbox{]}
+\item 
+int \hyperlink{_edge_detectiont_8c_a4746e12f9ae4d25b21eae22841771140}{distanceStackTop} = -\/1
+\item 
+int \hyperlink{_edge_detectiont_8c_a930b83edda39ee8cfa78dd4574a50bc3}{sum} = 0
+\item 
+int \hyperlink{_edge_detectiont_8c_aff9709965be7cc23789c5bcd1ea1eb70}{finalPathMatrix} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}
+\item 
+int \hyperlink{_edge_detectiont_8c_aaa893404e8a78733b33e6e46c5f55f20}{finalPathsSeen} = -\/1
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_edge_detectiont_8c_ac8949a6e6609645be6d42868113ad6d0}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!ADC\_\-Conversion\_\-@{ADC\_\-Conversion\_\-}}
+\index{ADC\_\-Conversion\_\-@{ADC\_\-Conversion\_\-}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{ADC\_\-Conversion\_\-}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char ADC\_\-Conversion\_\- (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{ Ch}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ac8949a6e6609645be6d42868113ad6d0}
+\hypertarget{_edge_detectiont_8c_a1e942fcd91f79d49e4ddb8d7e9d3ef95}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!adc\_\-init@{adc\_\-init}}
+\index{adc\_\-init@{adc\_\-init}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{adc\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void adc\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a1e942fcd91f79d49e4ddb8d7e9d3ef95}
+Initialization for ADC Pins \hypertarget{_edge_detectiont_8c_a27f01c5d49b89503a6d1380f151b19af}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!adc\_\-pin\_\-config@{adc\_\-pin\_\-config}}
+\index{adc\_\-pin\_\-config@{adc\_\-pin\_\-config}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{adc\_\-pin\_\-config}]{\setlength{\rightskip}{0pt plus 5cm}void adc\_\-pin\_\-config (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a27f01c5d49b89503a6d1380f151b19af}
+Configuration for ADC Pins \hypertarget{_edge_detectiont_8c_aa1b82b4baab19062621f00fa4e68d43f}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!angle\_\-rotate@{angle\_\-rotate}}
+\index{angle\_\-rotate@{angle\_\-rotate}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{angle\_\-rotate}]{\setlength{\rightskip}{0pt plus 5cm}void angle\_\-rotate (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ Degrees, }
+\item[{int}]{ dir}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_aa1b82b4baab19062621f00fa4e68d43f}
+Function used for turning robot by specified degrees \hypertarget{_edge_detectiont_8c_a2e32f7d7a709c80c2a07018617c64625}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!edgeDetect@{edgeDetect}}
+\index{edgeDetect@{edgeDetect}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{edgeDetect}]{\setlength{\rightskip}{0pt plus 5cm}int edgeDetect (
+\begin{DoxyParamCaption}
+\item[{struct {\bf Node} $\ast$}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a2e32f7d7a709c80c2a07018617c64625}
+Bot rotates 180 degrees at a node and finds all the edges that are going out of that node \hypertarget{_edge_detectiont_8c_ae26e0fbcae8cb59d3dae51134d8f2f8a}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!final\_\-level@{final\_\-level}}
+\index{final\_\-level@{final\_\-level}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{final\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void final\_\-level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ae26e0fbcae8cb59d3dae51134d8f2f8a}
+Final Level Code for Final Level \hypertarget{_edge_detectiont_8c_a1327d52908154559e11b133201d9025d}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!final\_\-move@{final\_\-move}}
+\index{final\_\-move@{final\_\-move}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{final\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}void final\_\-move (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a1327d52908154559e11b133201d9025d}
+\hypertarget{_edge_detectiont_8c_a022f5a54c9b6e46a252dcbdfe9ff7885}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!followWhiteLineTillNode@{followWhiteLineTillNode}}
+\index{followWhiteLineTillNode@{followWhiteLineTillNode}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{followWhiteLineTillNode}]{\setlength{\rightskip}{0pt plus 5cm}int followWhiteLineTillNode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a022f5a54c9b6e46a252dcbdfe9ff7885}
+\hypertarget{_edge_detectiont_8c_aa2ff0b91ca44b175c3d1612e0209db99}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!FORWARD@{FORWARD}}
+\index{FORWARD@{FORWARD}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{FORWARD}]{\setlength{\rightskip}{0pt plus 5cm}void FORWARD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_aa2ff0b91ca44b175c3d1612e0209db99}
+Makes the robot move in the Forward Direction \hypertarget{_edge_detectiont_8c_ab01199c927ceda6f9520c7afb0f1b099}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!init\_\-devices@{init\_\-devices}}
+\index{init\_\-devices@{init\_\-devices}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{init\_\-devices}]{\setlength{\rightskip}{0pt plus 5cm}void init\_\-devices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ab01199c927ceda6f9520c7afb0f1b099}
+\hypertarget{_edge_detectiont_8c_ae288e1a552cd27714cf083f5b308c3e7}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!INIT\_\-PORTS@{INIT\_\-PORTS}}
+\index{INIT\_\-PORTS@{INIT\_\-PORTS}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{INIT\_\-PORTS}]{\setlength{\rightskip}{0pt plus 5cm}void INIT\_\-PORTS (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ae288e1a552cd27714cf083f5b308c3e7}
+Port Initialization for Motion of the Bot \hypertarget{_edge_detectiont_8c_adf8b0cc638456814cadf9fb79221931f}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!initNode@{initNode}}
+\index{initNode@{initNode}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{initNode}]{\setlength{\rightskip}{0pt plus 5cm}void initNode (
+\begin{DoxyParamCaption}
+\item[{struct {\bf Node} $\ast$}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_adf8b0cc638456814cadf9fb79221931f}
+Self defined function
+
+\hyperlink{struct_node}{Node} Initialization function \hypertarget{_edge_detectiont_8c_a98a290ada01eb27fd2ff4564371566e5}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!ISR@{ISR}}
+\index{ISR@{ISR}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{ISR}]{\setlength{\rightskip}{0pt plus 5cm}ISR (
+\begin{DoxyParamCaption}
+\item[{INT4\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a98a290ada01eb27fd2ff4564371566e5}
+\hypertarget{_edge_detectiont_8c_a6225c50fbafa01589351ed487223aacb}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!ISR@{ISR}}
+\index{ISR@{ISR}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{ISR}]{\setlength{\rightskip}{0pt plus 5cm}ISR (
+\begin{DoxyParamCaption}
+\item[{INT5\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a6225c50fbafa01589351ed487223aacb}
+\hypertarget{_edge_detectiont_8c_ac23e73124dc9fabae95671fe71d074a6}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lcd\_\-init@{lcd\_\-init}}
+\index{lcd\_\-init@{lcd\_\-init}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lcd\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ac23e73124dc9fabae95671fe71d074a6}
+\hypertarget{_edge_detectiont_8c_a73a5ab32b7aee89eeb34133ff3fc8bc8}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lcd\_\-print@{lcd\_\-print}}
+\index{lcd\_\-print@{lcd\_\-print}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lcd\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-print (
+\begin{DoxyParamCaption}
+\item[{char}]{ row, }
+\item[{char}]{ coloumn, }
+\item[{unsigned int}]{ value, }
+\item[{int}]{ digits}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a73a5ab32b7aee89eeb34133ff3fc8bc8}
+\hypertarget{_edge_detectiont_8c_a03dc9c23d8a1f0bb7e5b395c019f3732}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lcd\_\-reset@{lcd\_\-reset}}
+\index{lcd\_\-reset@{lcd\_\-reset}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lcd\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a03dc9c23d8a1f0bb7e5b395c019f3732}
+\hypertarget{_edge_detectiont_8c_a3f8a3732239f1ff251be98da40c120e1}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lcd\_\-set\_\-4bit@{lcd\_\-set\_\-4bit}}
+\index{lcd\_\-set\_\-4bit@{lcd\_\-set\_\-4bit}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lcd\_\-set\_\-4bit}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-set\_\-4bit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a3f8a3732239f1ff251be98da40c120e1}
+\hypertarget{_edge_detectiont_8c_a347388301b1cb3c59b86432e9fc9b957}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lcd\_\-string@{lcd\_\-string}}
+\index{lcd\_\-string@{lcd\_\-string}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lcd\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-string (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ str}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a347388301b1cb3c59b86432e9fc9b957}
+\hypertarget{_edge_detectiont_8c_aff7831bb17c1206ab082415ee14e21b1}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!left\_\-position\_\-encoder\_\-interrupt\_\-init@{left\_\-position\_\-encoder\_\-interrupt\_\-init}}
+\index{left\_\-position\_\-encoder\_\-interrupt\_\-init@{left\_\-position\_\-encoder\_\-interrupt\_\-init}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{left\_\-position\_\-encoder\_\-interrupt\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void left\_\-position\_\-encoder\_\-interrupt\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_aff7831bb17c1206ab082415ee14e21b1}
+Enables interupts for the Left wheel \hypertarget{_edge_detectiont_8c_a38480be0e2dbfe9eac62c72d8620270e}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!LEFT\_\-TURN@{LEFT\_\-TURN}}
+\index{LEFT\_\-TURN@{LEFT\_\-TURN}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{LEFT\_\-TURN}]{\setlength{\rightskip}{0pt plus 5cm}void LEFT\_\-TURN (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a38480be0e2dbfe9eac62c72d8620270e}
+Makes the robot to rotate left \hypertarget{_edge_detectiont_8c_a1bb2dd2a07faa1139bb485a1c81218f5}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!level2@{level2}}
+\index{level2@{level2}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{level2}]{\setlength{\rightskip}{0pt plus 5cm}void level2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a1bb2dd2a07faa1139bb485a1c81218f5}
+Second Level (Any Intermediate Level) Code for Second Level. This code is applicable for any intermediate level, in this case , the second level. \hypertarget{_edge_detectiont_8c_ae8db1b1d88fef9504b6da9273677fc5d}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!level3@{level3}}
+\index{level3@{level3}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{level3}]{\setlength{\rightskip}{0pt plus 5cm}void level3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ae8db1b1d88fef9504b6da9273677fc5d}
+Third Level (Any Intermediate Level) Code for Third Level. This code is applicable for any intermediate level, in this case , the third level. \hypertarget{_edge_detectiont_8c_afc027345bdb5eb901ff0d7aa5ffa7306}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!linear\_\-distance\_\-mm@{linear\_\-distance\_\-mm}}
+\index{linear\_\-distance\_\-mm@{linear\_\-distance\_\-mm}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{linear\_\-distance\_\-mm}]{\setlength{\rightskip}{0pt plus 5cm}void linear\_\-distance\_\-mm (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ DistanceInMM}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_afc027345bdb5eb901ff0d7aa5ffa7306}
+Make the Bot move in the forarwd direction by the Distance of DistanceInMM \hypertarget{_edge_detectiont_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!main@{main}}
+\index{main@{main}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+Main function The starting point of the project \hypertarget{_edge_detectiont_8c_a80f7fd489559ef290b6f2b351473abaf}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!printMatrix@{printMatrix}}
+\index{printMatrix@{printMatrix}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{printMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void printMatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a80f7fd489559ef290b6f2b351473abaf}
+Prints the Shortest Path on LCD after traversing the entire Graph \hypertarget{_edge_detectiont_8c_a94fbfb940a904fbaac5b6655a59eb31a}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!REVERSE@{REVERSE}}
+\index{REVERSE@{REVERSE}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{REVERSE}]{\setlength{\rightskip}{0pt plus 5cm}void REVERSE (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a94fbfb940a904fbaac5b6655a59eb31a}
+Makes the robot move in the Reverse dDrection \hypertarget{_edge_detectiont_8c_a2abced502299086fef9db52a23c01cbb}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!reverse\_\-distance\_\-mm@{reverse\_\-distance\_\-mm}}
+\index{reverse\_\-distance\_\-mm@{reverse\_\-distance\_\-mm}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{reverse\_\-distance\_\-mm}]{\setlength{\rightskip}{0pt plus 5cm}void reverse\_\-distance\_\-mm (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ DistanceInMM}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a2abced502299086fef9db52a23c01cbb}
+Make the Bot move in the reverse direction by the Distance of DistanceInMM \hypertarget{_edge_detectiont_8c_a1333f7476858c2d76f7d725dfb0e7d88}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!right\_\-position\_\-encoder\_\-interrupt\_\-init@{right\_\-position\_\-encoder\_\-interrupt\_\-init}}
+\index{right\_\-position\_\-encoder\_\-interrupt\_\-init@{right\_\-position\_\-encoder\_\-interrupt\_\-init}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{right\_\-position\_\-encoder\_\-interrupt\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void right\_\-position\_\-encoder\_\-interrupt\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a1333f7476858c2d76f7d725dfb0e7d88}
+Enables interupts for the Right wheel \hypertarget{_edge_detectiont_8c_ab71cb3a4f6f9874c34767e07a599709a}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!RIGHT\_\-TURN@{RIGHT\_\-TURN}}
+\index{RIGHT\_\-TURN@{RIGHT\_\-TURN}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{RIGHT\_\-TURN}]{\setlength{\rightskip}{0pt plus 5cm}void RIGHT\_\-TURN (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_ab71cb3a4f6f9874c34767e07a599709a}
+Makes the robot to rotate Right \hypertarget{_edge_detectiont_8c_a588cd0c53225c61d7d46449db91e651a}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!rotateSkipping@{rotateSkipping}}
+\index{rotateSkipping@{rotateSkipping}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{rotateSkipping}]{\setlength{\rightskip}{0pt plus 5cm}void rotateSkipping (
+\begin{DoxyParamCaption}
+\item[{int}]{ n}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a588cd0c53225c61d7d46449db91e651a}
+Rotates clockwise by skipping n whitelines, Stops at the nth Whiteline \hypertarget{_edge_detectiont_8c_af68d13ce55b9e71286bf5bb4b3490171}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!start\_\-level@{start\_\-level}}
+\index{start\_\-level@{start\_\-level}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{start\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void start\_\-level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_af68d13ce55b9e71286bf5bb4b3490171}
+Function to handle the first level or the root node of the graph \hypertarget{_edge_detectiont_8c_aa406d064168311cf0fac61d7b8e7e6ea}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!STOP@{STOP}}
+\index{STOP@{STOP}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{STOP}]{\setlength{\rightskip}{0pt plus 5cm}void STOP (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_aa406d064168311cf0fac61d7b8e7e6ea}
+Makes the robot to Stop \hypertarget{_edge_detectiont_8c_a578f7cc9b705ce549aa856c927b102e8}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!timer5\_\-init@{timer5\_\-init}}
+\index{timer5\_\-init@{timer5\_\-init}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{timer5\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void timer5\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_a578f7cc9b705ce549aa856c927b102e8}
+Port initiialization Initialization for Timer 5 \hypertarget{_edge_detectiont_8c_aa5ae897cf316acc5c766757ffd41db19}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!velocity@{velocity}}
+\index{velocity@{velocity}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{velocity}]{\setlength{\rightskip}{0pt plus 5cm}void velocity (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{ left\_\-motor, }
+\item[{unsigned char}]{ right\_\-motor}
+\end{DoxyParamCaption}
+)}}
+\label{_edge_detectiont_8c_aa5ae897cf316acc5c766757ffd41db19}
+Used to control the Speed of the Left and the Right Wheels of the Bot 
+
+\subsection{Variable Documentation}
+\hypertarget{_edge_detectiont_8c_ac07d175e891a1d2657e9ec2a0c8fd4ab}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!buff@{buff}}
+\index{buff@{buff}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{buff}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf buff}\mbox{[}5\mbox{]}}}
+\label{_edge_detectiont_8c_ac07d175e891a1d2657e9ec2a0c8fd4ab}
+\hypertarget{_edge_detectiont_8c_a5d93f313fadfead6c7af16d7665e5115}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!curAngle@{curAngle}}
+\index{curAngle@{curAngle}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{curAngle}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf curAngle} = 0}}
+\label{_edge_detectiont_8c_a5d93f313fadfead6c7af16d7665e5115}
+\hypertarget{_edge_detectiont_8c_adaaae017534d7f67b7f6a1a4a92d51de}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!distanceStack@{distanceStack}}
+\index{distanceStack@{distanceStack}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{distanceStack}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf distanceStack}\mbox{[}3\mbox{]}}}
+\label{_edge_detectiont_8c_adaaae017534d7f67b7f6a1a4a92d51de}
+\hypertarget{_edge_detectiont_8c_a4746e12f9ae4d25b21eae22841771140}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!distanceStackTop@{distanceStackTop}}
+\index{distanceStackTop@{distanceStackTop}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{distanceStackTop}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf distanceStackTop} = -\/1}}
+\label{_edge_detectiont_8c_a4746e12f9ae4d25b21eae22841771140}
+\hypertarget{_edge_detectiont_8c_a11614f44ef4d939bdd984953346a7572}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!error@{error}}
+\index{error@{error}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf error} = 5}}
+\label{_edge_detectiont_8c_a11614f44ef4d939bdd984953346a7572}
+\hypertarget{_edge_detectiont_8c_a04d5e53a92ab964a45874350fe99ff21}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!final\_\-index@{final\_\-index}}
+\index{final\_\-index@{final\_\-index}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{final\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf final\_\-index}\mbox{[}4\mbox{]}}}
+\label{_edge_detectiont_8c_a04d5e53a92ab964a45874350fe99ff21}
+\hypertarget{_edge_detectiont_8c_aff9709965be7cc23789c5bcd1ea1eb70}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!finalPathMatrix@{finalPathMatrix}}
+\index{finalPathMatrix@{finalPathMatrix}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{finalPathMatrix}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf finalPathMatrix}\mbox{[}4\mbox{]}\mbox{[}4\mbox{]}}}
+\label{_edge_detectiont_8c_aff9709965be7cc23789c5bcd1ea1eb70}
+\hypertarget{_edge_detectiont_8c_aaa893404e8a78733b33e6e46c5f55f20}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!finalPathsSeen@{finalPathsSeen}}
+\index{finalPathsSeen@{finalPathsSeen}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{finalPathsSeen}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf finalPathsSeen} = -\/1}}
+\label{_edge_detectiont_8c_aaa893404e8a78733b33e6e46c5f55f20}
+Stores final paths seen so far -\/ 1. To properly adjust with index \hypertarget{_edge_detectiont_8c_a48f573e411c6f1306af7eb9c110622a1}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!first\_\-time\_\-flag@{first\_\-time\_\-flag}}
+\index{first\_\-time\_\-flag@{first\_\-time\_\-flag}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{first\_\-time\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf first\_\-time\_\-flag} = 0}}
+\label{_edge_detectiont_8c_a48f573e411c6f1306af7eb9c110622a1}
+flag for start node. to avoid counting again \hypertarget{_edge_detectiont_8c_a4b9e5e4c7566a87c1091a605314f921b}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!flag@{flag}}
+\index{flag@{flag}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{flag}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf flag}\mbox{[}10\mbox{]} = \{0,0,0,0,0,0,0,0,0,0\}}}
+\label{_edge_detectiont_8c_a4b9e5e4c7566a87c1091a605314f921b}
+0 for traversing,1 for back traversing \hypertarget{_edge_detectiont_8c_ac1148b6c7c73300331ae93335f42241d}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!i1@{i1}}
+\index{i1@{i1}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{i1}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf i1}}}
+\label{_edge_detectiont_8c_ac1148b6c7c73300331ae93335f42241d}
+\hypertarget{_edge_detectiont_8c_a48d37c88961428889f8b283379ab961c}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!i2@{i2}}
+\index{i2@{i2}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{i2}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf i2}}}
+\label{_edge_detectiont_8c_a48d37c88961428889f8b283379ab961c}
+\hypertarget{_edge_detectiont_8c_a46d0b19c5363d1d6b47ff947ff767ecb}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!i3@{i3}}
+\index{i3@{i3}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{i3}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf i3}}}
+\label{_edge_detectiont_8c_a46d0b19c5363d1d6b47ff947ff767ecb}
+\hypertarget{_edge_detectiont_8c_af97d1061a1e61db8a29e50b323f940a4}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!LeftShaftCount@{LeftShaftCount}}
+\index{LeftShaftCount@{LeftShaftCount}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{LeftShaftCount}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf LeftShaftCount}}}
+\label{_edge_detectiont_8c_af97d1061a1e61db8a29e50b323f940a4}
+\hypertarget{_edge_detectiont_8c_ab406a753bc7fb2b83fb0f2e52f91a4f2}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lev1Count@{lev1Count}}
+\index{lev1Count@{lev1Count}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lev1Count}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf lev1Count}}}
+\label{_edge_detectiont_8c_ab406a753bc7fb2b83fb0f2e52f91a4f2}
+\hypertarget{_edge_detectiont_8c_ad9528042adba26d0cc6c841d73616989}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lev2Count@{lev2Count}}
+\index{lev2Count@{lev2Count}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lev2Count}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf lev2Count}}}
+\label{_edge_detectiont_8c_ad9528042adba26d0cc6c841d73616989}
+\hypertarget{_edge_detectiont_8c_a8bba73973fb78d5c97a1397f111ad401}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!lev3Count@{lev3Count}}
+\index{lev3Count@{lev3Count}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{lev3Count}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf lev3Count}}}
+\label{_edge_detectiont_8c_a8bba73973fb78d5c97a1397f111ad401}
+\hypertarget{_edge_detectiont_8c_a3e578b37bd9ae08c1c79c80c6aa39ec6}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!levelcount@{levelcount}}
+\index{levelcount@{levelcount}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{levelcount}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf levelcount} = 1}}
+\label{_edge_detectiont_8c_a3e578b37bd9ae08c1c79c80c6aa39ec6}
+\hypertarget{_edge_detectiont_8c_a50d53b1d6c1abc70717e03318a2de3c1}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!node@{node}}
+\index{node@{node}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{node}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Node} {\bf node}}}
+\label{_edge_detectiont_8c_a50d53b1d6c1abc70717e03318a2de3c1}
+\hypertarget{_edge_detectiont_8c_a6887ad8f4f9bc7f6ed289866e5887241}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!RightShaftCount@{RightShaftCount}}
+\index{RightShaftCount@{RightShaftCount}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{RightShaftCount}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf RightShaftCount}}}
+\label{_edge_detectiont_8c_a6887ad8f4f9bc7f6ed289866e5887241}
+\hypertarget{_edge_detectiont_8c_a930b83edda39ee8cfa78dd4574a50bc3}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!sum@{sum}}
+\index{sum@{sum}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf sum} = 0}}
+\label{_edge_detectiont_8c_a930b83edda39ee8cfa78dd4574a50bc3}
+\hypertarget{_edge_detectiont_8c_a054e47e2d07f281f5a037ab90419e5c2}{
+\index{EdgeDetectiont.c@{EdgeDetectiont.c}!temp@{temp}}
+\index{temp@{temp}!EdgeDetectiont.c@{EdgeDetectiont.c}}
+\subsubsection[{temp}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Node}$\ast$ {\bf temp}\mbox{[}4\mbox{]}}}
+\label{_edge_detectiont_8c_a054e47e2d07f281f5a037ab90419e5c2}
